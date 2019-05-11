@@ -106,6 +106,12 @@ public class CircleK extends Circle implements Comparable<CircleK>{
 		this.text.setVisible(false);
 	}
 	
+	public void delete( Integer layoutX, Integer layoutY) {
+		this.setFill(null);
+		this.setStroke(null);
+		this.text.setVisible(false);
+	}
+	
 	public void deleteRun() {
 		this.setFill(null);
 		this.setStroke(null);

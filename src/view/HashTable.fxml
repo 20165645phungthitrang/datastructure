@@ -7,37 +7,34 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hashTable.HashTableController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFCC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hashTable.HashTableController">
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="37.0" layoutY="25.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-            <Label layoutX="182.0" layoutY="30.0" prefHeight="20.0" prefWidth="127.0" style="-fx-background-color: Pink;" text="Hash Function">
+            <Button layoutX="37.0" layoutY="25.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #A7FF71;" text="Back" />
+            <Label layoutX="182.0" layoutY="30.0" prefHeight="20.0" prefWidth="127.0" style="-fx-background-color: #A7FF71;" text="Hash Function">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label layoutX="373.0" layoutY="28.0" prefHeight="20.0" prefWidth="105.0" style="-fx-background-color: #A7FF71;" text="ASCII mod 5">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="373.0" layoutY="28.0" prefHeight="20.0" prefWidth="105.0" style="-fx-background-color: Pink;" text="ASCII mod 5">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            <AnchorPane fx:id="paneShow" layoutX="89.0" layoutY="53.0" prefHeight="239.0" prefWidth="438.0" />
-            <Button layoutX="41.0" layoutY="95.0" mnemonicParsing="false" onAction="#Key" text="Key" />
-            <Label layoutX="44.0" layoutY="189.0" text="Value" />
+            <AnchorPane fx:id="paneShow" layoutX="-12.0" layoutY="-8.0" prefHeight="239.0" prefWidth="438.0" />
+            <Button layoutX="41.0" layoutY="63.0" mnemonicParsing="false" onAction="#Key" style="-fx-background-color: #A7FF71;" text="Key" />
          </children>
       </AnchorPane>
    </top>
-   <bottom>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <center>
+      <AnchorPane prefHeight="112.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="65.0" layoutY="30.0" text="Input" />
-            <TextField fx:id="inputTextField" layoutX="129.0" layoutY="25.0" />
-            <Button layoutX="398.0" layoutY="17.0" mnemonicParsing="false" onAction="#AddHash" text="Add" />
-            <Button layoutX="472.0" layoutY="17.0" mnemonicParsing="false" onAction="#FindHash" text="Find" />
-            <Label layoutX="59.0" layoutY="64.0" text="Output" />
-            <TextField fx:id="outputTextField" layoutX="129.0" layoutY="59.0" prefHeight="26.0" prefWidth="462.0" />
-            <Label layoutX="64.0" layoutY="93.0" text="Result" />
-            <TextField fx:id="resultTextField" layoutX="129.0" layoutY="88.0" prefHeight="26.0" prefWidth="215.0" />
+            <Label layoutX="82.0" layoutY="65.0" text="Input" />
+            <TextField fx:id="inputTextField" layoutX="138.0" layoutY="58.0" style="-fx-border-color: #A7FF71; -fx-border-width: 2;" />
+            <Button layoutX="369.0" layoutY="60.0" mnemonicParsing="false" onAction="#AddHash" style="-fx-background-color: #A7FF71;" text="Add" />
+            <Button layoutX="454.0" layoutY="60.0" mnemonicParsing="false" onAction="#DeleteHash" style="-fx-background-color: #A7FF71;" text="Delete" />
+            <Label layoutX="76.0" layoutY="100.0" text="Output" />
+            <TextField fx:id="outputTextField" layoutX="138.0" layoutY="93.0" prefHeight="26.0" prefWidth="462.0" style="-fx-border-color: #A7FF71; -fx-border-width: 2;" />
          </children>
       </AnchorPane>
-   </bottom>
+   </center>
 </BorderPane>

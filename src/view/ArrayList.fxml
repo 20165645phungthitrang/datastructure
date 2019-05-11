@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFF99;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="arrayList.arrayListController">
+   <top>
+      <AnchorPane fx:id="paneShow" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="30.0" layoutY="27.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #A7FF71;" text="Back" />
+            <Button layoutX="401.0" layoutY="27.0" mnemonicParsing="false" onAction="#addArrayList" style="-fx-background-color: #A7FF71;" text="Add" />
+            <Button layoutX="454.0" layoutY="27.0" mnemonicParsing="false" onAction="#deleteArrayList" style="-fx-background-color: #A7FF71;" text="Delete" />
+            <Label layoutX="179.0" layoutY="32.0" text="Input" />
+            <TextField fx:id="inputTextField" layoutX="221.0" layoutY="27.0" prefHeight="26.0" prefWidth="146.0" />
+            <Label layoutX="167.0" layoutY="76.0" text="Output" />
+            <TextField fx:id="outputTextField" layoutX="221.0" layoutY="71.0" prefHeight="26.0" prefWidth="294.0" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
