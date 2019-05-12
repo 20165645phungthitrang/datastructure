@@ -25,9 +25,9 @@ public class HashTableController {
 	private TextField inputTextField;
 	@FXML
 	private TextField outputTextField;
-	String str;
+	//String str;
 	int x=120,y=100;
-	int modInput;
+	//int modInput;
 	
 	ArrayList<CircleK> arrayCircleK = new ArrayList<CircleK>();
 	Hashtable<Integer,ArrayList<String>> hashDemo = new Hashtable<Integer,ArrayList<String>>();

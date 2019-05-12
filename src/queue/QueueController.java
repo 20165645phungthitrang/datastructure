@@ -38,7 +38,7 @@ public class QueueController {
 	int size;
 	int x=40,y=100;
 	
-	Square newSq = new Square();
+	//Square newSq = new Square();
 	ArrayList<Square> arraySq = new ArrayList<Square>();
 	ArrayList<Square> arraySq2 = new ArrayList<Square>();
 	
@@ -88,7 +88,7 @@ public class QueueController {
 	
 	int i=0;
 	public void Dequeue(ActionEvent event) {
-		if(arraySq2.size()!= 0) {
+		if(arraySq2.size()!= 0 && i != arraySq2.size()) {
 			arraySq2.get(i).delete();
 			i++;
 			StackPane stackPane = new StackPane();

@@ -40,23 +40,6 @@ public class Square extends Rectangle implements Comparable<Square>{
 	public Square() {
 		super();
 	}
-	public Square(Integer number) {
-		super();
-		this.number = number;
-		this.setFill(Color.web("#A7FF71"));//set ben trong
-		this.setStroke(Color.web("#ff5050"));// set vien
-		this.setStrokeWidth(3);// set do rong cua vien
-		
-		//set chieu dai, chieu rong
-		this.setWidth(60);
-		this.setHeight(60);
-		this.setArcHeight(15);
-		this.setArcWidth(15);
-		
-		this.text = new Text(number.toString());
-		text.setFont(Font.font(20));
-		text.setStroke(Color.BLACK);
-	}
 	
 	public Square(Integer layoutX,Integer layoutY) {
 		super();
@@ -98,9 +81,6 @@ public class Square extends Rectangle implements Comparable<Square>{
 		this.setFill(color);
 	}
 	
-	public void changeBorder(Color color) {
-		this.setStroke(color);
-	}
 	
 	public void delete() {
 		this.setFill(null);

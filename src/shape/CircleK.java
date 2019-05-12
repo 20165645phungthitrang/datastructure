@@ -39,17 +39,7 @@ public class CircleK extends Circle implements Comparable<CircleK>{
 	public CircleK() {
 		super();
 	}
-	public CircleK(Integer number) {
-		super();
-		this.number = number;
-		this.setFill(Color.GREEN);//set ben trong
-		this.setStroke(Color.BLUE);// set vien
-		this.setStrokeWidth(3);// set do rong cua vien
-		this.setRadius(30);
-		
-		this.text = new Text(number.toString());
-		text.setStroke(Color.BLACK);
-	}
+	
 	
 	public CircleK(Integer layoutX, Integer layoutY) {
 		super();
@@ -96,9 +86,7 @@ public class CircleK extends Circle implements Comparable<CircleK>{
 		this.setFill(color);
 	}
 	
-	public void changeBorder(Color color) {
-		this.setStroke(color);
-	}
+	
 	
 	public void delete() {
 		this.setFill(null);
@@ -112,10 +100,7 @@ public class CircleK extends Circle implements Comparable<CircleK>{
 		this.text.setVisible(false);
 	}
 	
-	public void deleteRun() {
-		this.setFill(null);
-		this.setStroke(null);
-	}
+	
 	
 	@Override
 	public int compareTo(CircleK circleK) {
