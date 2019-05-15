@@ -28,7 +28,7 @@ public class arrayListController {
 	
 	
 	ArrayList<Square> arraySq = new ArrayList<Square>();
-	ArrayList<Square> arraySq2 = new ArrayList<Square>();
+	
 	ArrayList<String> input = new ArrayList<String>();
 	int size=0;
 

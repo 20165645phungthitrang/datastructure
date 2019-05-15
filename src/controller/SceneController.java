@@ -19,7 +19,7 @@ public class SceneController {
 		loader.setLocation(getClass().getResource("../view/Queue.fxml"));
 		Parent queue = loader.load();
 		Scene scene = new Scene(queue,800,400);
-		scene.getStylesheets().add(getClass().getResource("../view/Queue.css").toExternalForm());
+		//scene.getStylesheets().add(getClass().getResource("../view/Queue.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Queue");
 	}

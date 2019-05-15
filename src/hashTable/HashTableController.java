@@ -25,13 +25,14 @@ public class HashTableController {
 	private TextField inputTextField;
 	@FXML
 	private TextField outputTextField;
-	//String str;
+	
 	int x=120,y=100;
-	//int modInput;
+	
 	
 	ArrayList<CircleK> arrayCircleK = new ArrayList<CircleK>();
+	ArrayList<CircleK> arrayCircleK1 = new ArrayList<CircleK>();
 	Hashtable<Integer,ArrayList<String>> hashDemo = new Hashtable<Integer,ArrayList<String>>();
-	ArrayList<String> list = new ArrayList<String>();
+	ArrayList<String> input = new ArrayList<String>();
 	
 	public int valueAscii(String str) {
 		int value=0;
@@ -51,19 +52,19 @@ public class HashTableController {
 	
 		
 	public void Key(ActionEvent event) {
-	//	String str1 = inputTextField.getText();
+	
 		for(int i=0;i<5;i++) {
 			CircleK newCircleK = new CircleK(i,x,y);
-			arrayCircleK.add(newCircleK);
+			arrayCircleK1.add(newCircleK);
 			y+=70;
 		}
 		
 
-		for(CircleK circleK: arrayCircleK) {
+		for(CircleK circleK: arrayCircleK1) {
 			System.out.println(circleK.getX());
 		}
 		
-		for(CircleK circleK: arrayCircleK) {
+		for(CircleK circleK: arrayCircleK1) {
 			StackPane stackPane = new StackPane();
 			stackPane.getChildren().addAll(circleK, circleK.getText());
 			stackPane.setLayoutX(circleK.getX());
@@ -74,10 +75,9 @@ public class HashTableController {
 	}
 	
 	
-	//Hashtable hashDemo = new Hashtable<>();
-	//int xnext=100,ynext=100;
+	
 	public void AddHash(ActionEvent event) {
-		
+		int check2=0;
 		String str1 = inputTextField.getText();
 		inputTextField.clear();
 		int value = HashFunction(str1);
@@ -90,9 +90,11 @@ public class HashTableController {
 		if(check==0) {
 			hashDemo.put(value, new ArrayList<>());
 			hashDemo.get(value).add(str1);
+			input.add(str1);
+			
 			outputTextField.setText("Thêm dữ liệu thành công!!");
 		}else {
-			int check2=0;
+			check2=0;
 			for(Integer key : hashDemo.keySet()) {
 				
 				ArrayList<String> list1 = hashDemo.get(key);
@@ -105,10 +107,16 @@ public class HashTableController {
 					}
 				}
 			}
-			if(check2 == 0) hashDemo.get(value).add(str1);
+			
+			if(check2 == 0) {
+				hashDemo.get(value).add(str1);
+				input.add(str1);
+				
+			
+			}
 		}
 		
-		
+		if(check2==0) {
 		CircleK addValue = new CircleK(str1,120+(70*(hashDemo.get(value)).size()),100+(70*value));
 		addValue.changeBackGround(Color.PINK);
 		addValue.setNumber(valueAscii(str1));
@@ -120,54 +128,69 @@ public class HashTableController {
 		stackPane.setLayoutY(addValue.getY());
 		paneShow.getChildren().add(stackPane);
 		
-
+		}
 	}
 	
 	public void DeleteHash(ActionEvent event) {
-		//resultTextField.setText(" ");
+		
 		String str1 = inputTextField.getText();
 		inputTextField.clear();
 		int value = HashFunction(str1);
-		int check=0;
-		for(Integer key : hashDemo.keySet()) {//check xem key da ton tai hay chua
-			if(key == HashFunction(str1)) {
-				check =1;
-			}
-		}
-		if(check==0) {
-			//outputTextField.setText("Chưa có dữ liệu trong bảng !!");
-		}else {
-			//int check2=0;
-			for(Integer key : hashDemo.keySet()) {
-				int i=0;
-				ArrayList<String> list1 = hashDemo.get(key);
-				for(int cnt=0;cnt<list1.size();cnt++) {
-					if(list1.get(i).equals(str1)==true) {
-						hashDemo.get(key).remove(str1);
-				}
-				if(list1.size()==0) {
-					hashDemo.remove(key);
-					//arrayCircleK.get(key+1).delete();
-					}
-				}
-			//if(check2 == 0) hashDemo.get(value).add(str1);
-			}
-		}
 		
-		for(int i=0;i<arrayCircleK.size();i++) {
+		for(int i=0;i<input.size();i++) {
 		if(arrayCircleK.get(i).getNumber() == valueAscii(str1)) {
-				arrayCircleK.get(i).delete();
-				outputTextField.setText("Xóa thành công!!");
+			hashDemo.clear();
+			input.remove(str1);
+			 for(int j=0 ;j<arrayCircleK.size();j++) {
+		        	arrayCircleK.get(j).delete();
+		        }
+			 for(int j=0 ; j<input.size();j++) {
+				 
+				 int check=0;
+					for(Integer key : hashDemo.keySet()) {//check xem key da ton tai hay chua
+						if(key == HashFunction(input.get(j))) {
+							check =1;
+						}
+					}
+					if(check==0) {
+						hashDemo.put(HashFunction(input.get(j)), new ArrayList<>());
+						hashDemo.get(HashFunction(input.get(j))).add(input.get(j));
+						 CircleK addValue = new CircleK(input.get(j),190,100+(70*(HashFunction(input.get(j)))));
+							addValue.changeBackGround(Color.PINK);
+							addValue.setNumber(valueAscii(input.get(j)));
+							
+							arrayCircleK.add(addValue);
+						
+					}else {
+							hashDemo.get(HashFunction(input.get(j))).add(input.get(j));
+							 CircleK addValue = new CircleK(input.get(j),120+(70*(hashDemo.get(HashFunction(input.get(j)))).size()),100+(70*(HashFunction(input.get(j)))));
+								addValue.changeBackGround(Color.PINK);
+								addValue.setNumber(valueAscii(input.get(j)));
+								
+								arrayCircleK.add(addValue);
+						
+						}
+					}
+		
+			 outputTextField.setText("Xóa thành công!!");
 				break;
-			}else outputTextField.setText("Chưa có dữ liệu trong bảng !!");
+			 }else outputTextField.setText("Chưa có dữ liệu trong bảng !!");
+		}
 			
+				
+		
+		for(CircleK circleK: arrayCircleK) {
+			System.out.println(circleK.getX());
 		}
 		
-		
-		StackPane stackPane = new StackPane();
-		paneShow.getChildren().add(stackPane);
-		
-		
+		for(CircleK circleK: arrayCircleK) {
+			StackPane stackPane = new StackPane();
+			stackPane.getChildren().addAll(circleK, circleK.getText());
+			stackPane.setLayoutX(circleK.getX());
+			stackPane.setLayoutY(circleK.getY());
+			paneShow.getChildren().add(stackPane);
+		}
+				
 	}
 	//tro ve scene truoc
 	public void goBack(ActionEvent event) throws IOException{
