@@ -66,7 +66,7 @@ public class QueueController {
 	}
 	
 	public void Enqueue(ActionEvent event) {
-		if(arraySq2.size()<11) {
+		if(arraySq2.size()<size) {
 			String strvalue = valueTextField.getText();
 			
 			valueTextField.clear();
